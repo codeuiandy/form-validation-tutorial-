@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Gupter|Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Ibarra+Real+Nova|Roboto&display=swap" rel="stylesheet">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel = "stylesheet"
+    type = "text/css"
+    href = "input.css" />
+    <title>Form Validation</title>
+</head>
+<body>
+   <div class="loginbox">
+       <div>
+       <div>
+          <h1>Login
+          </h1>
+       </div>
+     
+       <div class="iconContainer">
+            <input id="email" class="infoInput" placeholder="Email" type="email"/>
+            <div class="faIcon"><i class="fa fa-user-circle"></i></div>
+            
+       </div>
+
+       <div class="iconContainer">
+            <input class="infoInput" id="myInput" placeholder="password" type="password"/>
+            <div class="faIcon" onclick="togglePassword()"><i class="fa fa-eye"></i></div>
+        </div>
+
+        <div class="submitBtn">
+            <button onclick="val_email()">sign In</button>
+        </div>
+       
+      </div>
+   </div>
+<script>
+// /^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+.([a-zA-Z])+([a-zA-Z])+/
+togglePassword=()=>{
+  let = showPassword = document.getElementById("myInput")
+  if(showPassword.type === "password"){
+    showPassword.type = "text"
+  }
+  else{
+    showPassword.type ="password"
+  }
+}
+
+val_email=()=>{
+  let email = document.getElementById("email").value;
+  let pattern =/^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+.([a-zA-Z])+([a-zA-Z])+/
+  let isValid = pattern.test(email);
+  if(email != null && isValid==false)
+{
+  let email = document.getElementById("email").value= '';
+  let er = document.getElementById("email")
+  er.placeholder = "Invalid Email"
+  return false
+}
+else if(email != null && isValid == true){
+  alert('Access Granted')
+}
+}
+
+</script>
+   
+</body>
+</html>
